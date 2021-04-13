@@ -2,7 +2,7 @@ server:
   port: 9998
 spring:
   application:
-    name: nacos-provider
+    name: nacos-consumer
   cloud:
     nacos:
       discovery:

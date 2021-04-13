@@ -20,7 +20,7 @@ public class NacosConsumerApi {
     @Value("${spring.application.name}")
     private String appName;
 
-    private RestTemplate restTemplate = new RestTemplate();
+//    private RestTemplate restTemplate = new RestTemplate();
 
     @Autowired
     private LoadBalancerClient loadBalancerClient;
@@ -33,7 +33,8 @@ public class NacosConsumerApi {
         String url = String.format("http://%s:%s/nacos/%s", serviceInstance.getHost(), serviceInstance.getPort(),
                 appName);
         System.out.println("request url:" + url);
-        return restTemplate.getForObject(url, String.class);
+        return url;
+//        return restTemplate.getForObject(url, String.class);
     }
 
 
