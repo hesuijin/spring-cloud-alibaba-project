@@ -1,0 +1,16 @@
+server:
+  port: 9999
+spring:
+  application:
+    name: nacos-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.113.101.241:8848
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
