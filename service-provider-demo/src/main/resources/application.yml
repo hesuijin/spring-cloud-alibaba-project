@@ -1,5 +1,5 @@
 server:
-  port: 9991
+  port: 9992
 spring:
   application:
     name: nacos-provider

@@ -48,5 +48,4 @@ public class NacosConsumerApi {
         return restTemplate.getForObject(url, String.class);
     }
 
-
 }

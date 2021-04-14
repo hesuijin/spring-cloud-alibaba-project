@@ -1,5 +1,5 @@
 server:
-  port: 9992
+  port: 9991
 spring:
   application:
     name: nacos-consumer
