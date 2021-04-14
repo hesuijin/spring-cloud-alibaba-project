@@ -12,13 +12,11 @@
     <artifactId>service-consumer-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>service-consumer-demo</name>
-    <description>service-consumer-demo project for Spring Boot</description>
+    <description>service-consumer-demo project for Spring Cloud</description>
     <properties>
-
         <spring.boot.version>2.1.0.RELEASE</spring.boot.version>
         <spring.cloud.version>Greenwich.SR2</spring.cloud.version>
         <spring.cloud.alibaba.version>2.1.0.RELEASE</spring.cloud.alibaba.version>
-
         <java.version>1.8</java.version>
     </properties>
 
@@ -53,15 +51,21 @@
 
 
     <dependencies>
-
+        <!--        引入nacos-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
-        <!--        引入lombok 使用@Data注解  使用@Slf4j注解-->
+        <!--        该项目为Web项目-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!--        引入lombok 使用@Data注解  使用@Slf4j注解-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
         <!--        使用alibaba的 json转换-->
         <dependency>
@@ -81,10 +85,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
     </dependencies>
-
-
     <build>
         <plugins>
             <plugin>
@@ -93,5 +94,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

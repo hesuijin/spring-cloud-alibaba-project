@@ -1,5 +1,7 @@
 package com.example.demo.nacos;
 
+import com.alibaba.fastjson.JSONObject;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
@@ -16,25 +18,34 @@ import org.springframework.web.client.RestTemplate;
  */
 
 @RestController
+@Slf4j
 public class NacosConsumerApi {
     @Value("${spring.application.name}")
     private String appName;
 
-//    private RestTemplate restTemplate = new RestTemplate();
-
     @Autowired
     private LoadBalancerClient loadBalancerClient;
 
-    @GetMapping(value = "/nacos/{str}")
-    public String nacos(@PathVariable String str) {
+    private RestTemplate restTemplate = new RestTemplate();
 
-        // 使用 LoadBalanceClient 和 RestTemolate 结合的方式来访问
+    @GetMapping(value = "/nacos/{string}")
+    public String nacos(@PathVariable String string) {
+
+        //使用LoadBalanceClient的方式来获取 nacos-provider的服务信息
         ServiceInstance serviceInstance = loadBalancerClient.choose("nacos-provider");
+        log.info( "打印serviceInstance信息：{}",JSONObject.toJSONString(serviceInstance));
+
+        // 对将要请求的url进行组装
         String url = String.format("http://%s:%s/nacos/%s", serviceInstance.getHost(), serviceInstance.getPort(),
                 appName);
-        System.out.println("request url:" + url);
-        return url;
-//        return restTemplate.getForObject(url, String.class);
+
+        http://192.168.137.1:9991/nacos/nacos-consumer
+        log.info("你好，我是请求的url request url:{}" , url);
+
+        //注意这里面 restTemplate.getForObject 已经进行了一次请求
+        log.info( "打印返回信息：{}",JSONObject.toJSONString(restTemplate.getForObject(url, String.class)));
+
+        return restTemplate.getForObject(url, String.class);
     }
 
 
