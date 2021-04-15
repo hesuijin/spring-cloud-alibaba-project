@@ -53,11 +53,17 @@
 
 
     <dependencies>
-        <!--        引入nacos-->
+        <!--        引入nacos注册发现中心-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
+        <!--        引入nacos配置中心-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+
         <!--        该项目为Web项目-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
