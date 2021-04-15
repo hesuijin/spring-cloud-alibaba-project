@@ -51,6 +51,12 @@
 
 
     <dependencies>
+        <!--            sentinel 熔断降级-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+
         <!--        引入nacos-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
@@ -84,6 +90,10 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-core</artifactId>
         </dependency>
     </dependencies>
     <build>
