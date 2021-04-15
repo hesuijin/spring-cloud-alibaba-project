@@ -8,6 +8,7 @@ import com.alibaba.csp.sentinel.adapter.gateway.common.api.GatewayApiDefinitionM
 import com.alibaba.csp.sentinel.adapter.gateway.common.rule.GatewayFlowRule;
 import com.alibaba.csp.sentinel.adapter.gateway.common.rule.GatewayRuleManager;
 import com.alibaba.csp.sentinel.adapter.gateway.sc.SentinelGatewayFilter;
+import com.alibaba.csp.sentinel.adapter.gateway.sc.callback.GatewayCallbackManager;
 import com.alibaba.csp.sentinel.adapter.gateway.sc.exception.SentinelGatewayBlockExceptionHandler;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
@@ -63,25 +64,42 @@ public class GatewaySentinelConfiguration {
     public void doInit() {
         initCustomizedApis();
         initGatewayRules();
+        //设置 自定义返回异常
+        GatewayCallbackManager.setBlockHandler(new MyBlockRequestHandler());
     }
 
+    /**
+     * 设置进行限流的Api集合
+     */
     private void initCustomizedApis() {
         /*
-        ApiDefinition：用户自定义的 API 定义分组，可以看做是一些 URL 匹配的组合。
-        比如我们可以定义一个 API 叫 my_api，请求 path 模式为 /foo/** 和 /baz/** 的都归到 my_api 这个 API 分组下面。
-        限流的时候可以针对这个自定义的 API 分组维度进行限流。
-        */
+            ApiDefinition：用户自定义的 API 定义分组，可以看做是一些 URL 匹配的组合。
+            比如我们可以定义一个 API 叫 myGateway，
+            请求 path 模式为
+            /nacos-provider/loadBanlance/print  默认为准确的         URL_MATCH_STRATEGY_EXACT
+             /nacos-provider/loadBanlance/**    如需/**需要设置成    URL_MATCH_STRATEGY_PREFIX
+             的都归到 myGateway 这个 API 分组下面。
+         */
+
+        //限流的时候可以针对这个自定义的 API 分组维度进行限流。
         Set<ApiDefinition> definitions = new HashSet<>();
         //设置限流路径
-        ApiDefinition api = new ApiDefinition("gateway")
+        ApiDefinition api = new ApiDefinition("myGateway")
                 .setPredicateItems(new HashSet<ApiPredicateItem>() {{
-                    add(new ApiPathPredicateItem().setPattern("/nacos-provider/loadBanlance/print"));
+                    add(new ApiPathPredicateItem()
+//                            .setPattern("/nacos-provider/loadBanlance/print")
+                            .setPattern("/nacos-provider/loadBanlance/**")
+                            .setMatchStrategy(SentinelGatewayConstants.URL_MATCH_STRATEGY_PREFIX)
+                    );
                 }});
 
         definitions.add(api);
         GatewayApiDefinitionManager.loadApiDefinitions(definitions);
     }
 
+    /**
+     * 设置限流的Api集合的具体限流
+     */
     private void initGatewayRules() {
         /*
         GatewayFlowRule：网关限流规则，
@@ -94,13 +112,13 @@ public class GatewaySentinelConfiguration {
         count: QPS即每秒钟允许的调用次数
         intervalSec: 每隔多少时间统计一次汇总数据，统计时间窗口，单位是秒，默认是 1 秒。
         */
-        rules.add(new GatewayFlowRule("gateway")
+        //针对上面的  自定义ApiDefinition分组进行限流
+        rules.add(new GatewayFlowRule("myGateway")
                 .setResourceMode(SentinelGatewayConstants.RESOURCE_MODE_CUSTOM_API_NAME)
-                .setCount(2)
+                .setCount(5)
                 .setIntervalSec(1)
 
         );
         GatewayRuleManager.loadRules(rules);
-
     }
 }
