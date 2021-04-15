@@ -49,7 +49,6 @@
         </dependencies>
     </dependencyManagement>
 
-
     <dependencies>
 
         <!--gateway 网关-->
