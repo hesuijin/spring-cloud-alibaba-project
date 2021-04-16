@@ -2,7 +2,7 @@ server:
   port: 9994
 spring:
   application:
-    name: nacos-provider
+    name: nacos-provider-feign
   cloud:
     nacos:
       discovery:

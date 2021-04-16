@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 
 /**
- * @Description:
- * 进行负载均衡测试
+ * @Description: 进行负载均衡测试
  * @Author HeSuiJin
  * @Date 2021/4/15
  */
@@ -16,13 +15,10 @@ import java.util.Date;
 @Slf4j
 public class NacosRobin {
 
-//    @RestController
-//    public class LoadBanlanceApi {
+    @GetMapping(value = "/loadBalance/print")
+    public String print() {
+        log.info(new Date() + "调用：我是服务 service-provider-demo");
+        return "我是服务 service-provider-demo";
+    }
 
-        @GetMapping(value = "/loadBalance/print")
-        public String print() {
-            log.info(new Date()+"调用：我是服务 service-provider-demo");
-            return "我是服务 service-provider-demo";
-        }
-//    }
 }
