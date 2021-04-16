@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>service-consumer-demo</artifactId>
+    <artifactId>service-provider-demo-feign</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>service-consumer-demo</name>
-    <description>service-consumer-demo project for Spring Cloud</description>
+    <name>service-provider-demo-feign</name>
+    <description>Service-provider-demo-feign project for Spring Cloud Alibaba</description>
     <properties>
         <spring.boot.version>2.1.0.RELEASE</spring.boot.version>
         <spring.cloud.version>Greenwich.SR2</spring.cloud.version>
@@ -51,17 +51,23 @@
 
 
     <dependencies>
-        <!--            sentinel 熔断降级-->
+        <!--        引入OpenFeign-->
         <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
 
-        <!--        引入nacos-->
+        <!--        引入nacos注册发现中心-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
+        <!--        引入nacos配置中心-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+
         <!--        该项目为Web项目-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -91,18 +97,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <dependency>
-            <groupId>com.alibaba.csp</groupId>
-            <artifactId>sentinel-core</artifactId>
-        </dependency>
-
-<!--        引入Provider 入口包feign-->
-        <dependency>
-            <groupId>com.example</groupId>
-            <artifactId>service-provider-demo-feign</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -112,4 +106,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

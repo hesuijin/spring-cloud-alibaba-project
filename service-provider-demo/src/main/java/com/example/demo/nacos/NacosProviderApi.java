@@ -22,7 +22,6 @@ public class NacosProviderApi {
         return "Hello Nacos Discovery " + string;
     }
 
-
 }
 
 

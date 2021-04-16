@@ -76,8 +76,8 @@ public class GatewaySentinelConfiguration {
             ApiDefinition：用户自定义的 API 定义分组，可以看做是一些 URL 匹配的组合。
             比如我们可以定义一个 API 叫 myGateway，
             请求 path 模式为
-            /nacos-provider/loadBanlance/print  默认为准确的         URL_MATCH_STRATEGY_EXACT
-             /nacos-provider/loadBanlance/**    如需/**需要设置成    URL_MATCH_STRATEGY_PREFIX
+            /nacos-provider/loadBalance/print  默认为准确的         URL_MATCH_STRATEGY_EXACT
+             /nacos-provider/loadBalance/**    如需/**需要设置成    URL_MATCH_STRATEGY_PREFIX
              的都归到 myGateway 这个 API 分组下面。
          */
 
@@ -88,7 +88,7 @@ public class GatewaySentinelConfiguration {
                 .setPredicateItems(new HashSet<ApiPredicateItem>() {{
                     add(new ApiPathPredicateItem()
 //                            .setPattern("/nacos-provider/loadBanlance/print")
-                            .setPattern("/nacos-provider/loadBanlance/**")
+                            .setPattern("/nacos-provider/loadBalance/**")
                             .setMatchStrategy(SentinelGatewayConstants.URL_MATCH_STRATEGY_PREFIX)
                     );
                 }});

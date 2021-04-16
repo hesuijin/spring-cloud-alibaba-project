@@ -16,13 +16,13 @@ import java.util.Date;
 @Slf4j
 public class NacosRobin {
 
-    @RestController
-    public class LoadBanlanceApi {
+//    @RestController
+//    public class LoadBanlanceApi {
 
-        @GetMapping(value = "/loadBanlance/print")
+        @GetMapping(value = "/loadBalance/print")
         public String print() {
             log.info(new Date()+"调用：我是服务 service-provider-demo");
             return "我是服务 service-provider-demo";
         }
-    }
+//    }
 }
