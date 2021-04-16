@@ -10,7 +10,7 @@ import static org.springframework.web.reactive.function.BodyInserters.fromObject
 
 /**
  * @Description:
- *  自己定义返回异常
+ *  自定义返回异常
  * @Author HeSuiJin
  * @Date 2021/4/15
  */

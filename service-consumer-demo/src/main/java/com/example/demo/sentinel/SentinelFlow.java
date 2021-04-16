@@ -13,21 +13,21 @@ import java.util.List;
 
 /**
  * @Description:
+ * 限流
  * @Author HeSuiJin
  * @Date 2021/4/15
  */
 @RestController
 @RequestMapping(value = "/sentinelFlow")
-public class SentielFlow {
+public class SentinelFlow {
 
     /**
      * 在构造方法里初始化了 限流 规则。
      * 写在这里只是为了方便测试，实际开发中，规则的初始化可以放在统一的地方，而不是写在每个控制器里
      */
-    public SentielFlow() {
+    public SentinelFlow() {
         initFlowRules();
     }
-
 
     /**
      * 熔断测试接口
@@ -38,7 +38,7 @@ public class SentielFlow {
      * 熔断后处理逻辑由ExceptionUtil.handleException(前面可加自己的参数,BlockException e)控制
      */
     @GetMapping(value = "/test")
-    @SentinelResource(value = "test", blockHandler = "handleException", blockHandlerClass = {SentielException.class})
+    @SentinelResource(value = "sentinelFlowTest", blockHandler = "handleException", blockHandlerClass = {SentinelException.class})
     public String test() {
         try {
             Thread.sleep(500);
@@ -63,7 +63,7 @@ public class SentielFlow {
 		 */
         List<FlowRule> rules = new ArrayList<>();
         FlowRule rule = new FlowRule();
-        rule.setResource("test");
+        rule.setResource("sentinelFlowTest");
         rule.setGrade(RuleConstant.FLOW_GRADE_QPS);
         rule.setCount(10);
         rules.add(rule);
