@@ -29,6 +29,11 @@ public class OrderServiceImpl implements OrderService {
         order.setCommodityCode(commodityCode);
         order.setCount(orderCount);
         order.setMoney(orderMoney);
+
+        if (true) {
+            throw new RuntimeException("account branch exception");
+        }
+
         orderMapper.insert(order);
     }
 }
