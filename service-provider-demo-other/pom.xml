@@ -52,6 +52,7 @@
 
 
 	<dependencies>
+
 		<!--        引入nacos注册发现中心-->
 		<dependency>
 			<groupId>com.alibaba.cloud</groupId>
@@ -91,6 +92,36 @@
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+
+		<!-- Mysql 驱动包 -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.44</version>
+		</dependency>
+		<!--        连接Mybatis持久层框架-->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>2.1.4</version>
+		</dependency>
+		<!-- Mybatis 驱动包 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid-spring-boot-starter</artifactId>
+			<version>1.1.6</version>
+		</dependency>
+		<!--        seata分布式事务-->
+		<dependency>
+			<groupId>io.seata</groupId>
+			<artifactId>seata-spring-boot-starter</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.seata</groupId>
+			<artifactId>seata-all</artifactId>
+			<version>1.4.0</version>
 		</dependency>
 	</dependencies>
 	<build>

@@ -51,6 +51,18 @@
 
 
     <dependencies>
+<!--        &lt;!&ndash;        seata分布式事务&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>io.seata</groupId>-->
+<!--            <artifactId>seata-spring-boot-starter</artifactId>-->
+<!--            <version>1.4.0</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>io.seata</groupId>-->
+<!--            <artifactId>seata-all</artifactId>-->
+<!--            <version>1.4.0</version>-->
+<!--        </dependency>-->
+
         <!--        引入OpenFeign-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

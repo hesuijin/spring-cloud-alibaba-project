@@ -13,17 +13,16 @@ spring:
         group: DEFAULT_GROUP
         file-extension: yml
         refresh-enabled: true
+  datasource:
+    username: root
+    password: Hsj123456
+    url: jdbc:mysql://47.115.38.181:3306/db_storage?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+    driverClassName: com.mysql.jdbc.Driver
+mybatis:
+  mapper-locations: classpath:mapper/*/*.xml, classpath:mapper/*.xml
 
 management:
   endpoints:
     web:
       exposure:
         include: "*"
-
-  datasource:
-    username: root
-    password: Hsj123456
-    url: jdbc:mysql://47.115.38.181:3306/hsj_security?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
-    driverClassName: com.mysql.jdbc.Driver
-mybatis:
-  mapper-locations: classpath:mapper/*/*.xml, classpath:mapper/*.xml

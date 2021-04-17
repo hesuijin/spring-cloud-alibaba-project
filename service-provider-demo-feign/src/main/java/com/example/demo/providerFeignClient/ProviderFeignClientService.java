@@ -18,4 +18,15 @@ public interface ProviderFeignClientService {
      */
     @GetMapping(value = "/loadBalance/print")
     String print();
+
+
+    /**
+     * 测试 分布式事务 seata
+     * @param userId
+     * @param commodityCode
+     * @param orderCount
+     * @return
+     */
+    @GetMapping(value = "/seataTest/createOrder")
+    String createOrder(String userId, String commodityCode, int orderCount);
 }
