@@ -23,10 +23,10 @@ public class OrderController {
     private OrderService orderService;
 
     @GetMapping(value = "createOrder")
-    public void SeataCreateOrder(@RequestParam String userId, @RequestParam String commodityCode, @RequestParam Integer count) {
+    public void SeataCreateOrder(@RequestParam("userId") String userId, @RequestParam("commodityCode") String commodityCode, @RequestParam("orderCount") Integer orderCount) {
         System.out.println("我是 service-provider-demo-other 服务 的seata createOrder接口");
         System.out.println("order XID " + RootContext.getXID());
-        orderService.createOrder(userId, commodityCode, count);
+        orderService.createOrder(userId, commodityCode, orderCount);
     }
 
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.seata.mapper.StorageMapper">
+    <resultMap id="BaseResultMap" type="com.example.demo.seata.entity.Storage">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="commodity_code" property="commodityCode" jdbcType="VARCHAR"/>
+        <result column="count" property="count" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="findByCommodityCode" resultType="com.example.demo.seata.entity.Storage">
+        select id, commodity_code commodityCode, count from storage_tbl
+        WHERE commodity_code = #{commodityCode}
+    </select>
+
+    <update id="updateById">
+        update storage_tbl set count = #{count,jdbcType=INTEGER}
+        WHERE id = #{id}
+    </update>
+</mapper>

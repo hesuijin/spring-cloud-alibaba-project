@@ -9,6 +9,6 @@ import com.example.demo.seata.entity.Storage;
  */
 public interface StorageService {
 
-    public void deduct(String commodityCode, int count) ;
+     void deduct(String commodityCode, int count) ;
 
 }

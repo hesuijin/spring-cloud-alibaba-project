@@ -15,5 +15,5 @@ import org.springframework.web.bind.annotation.Mapping;
 @Repository
 public interface OrderMapper {
 
-     int insert(@Param("order") Order order);
+     int insert(Order order);
 }

@@ -12,5 +12,5 @@ public interface BusinessService {
      * @param commodityCode
      * @param orderCount
      */
-    void purchase(String userId, String commodityCode, int orderCount);
+    void purchase(String userId, String commodityCode, Integer orderCount);
 }

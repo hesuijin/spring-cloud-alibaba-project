@@ -7,5 +7,5 @@ package com.example.demo.seata.service;
  */
 public interface OrderService {
 
-     void createOrder(String userId, String commodityCode, Integer count);
+     void createOrder(String userId, String commodityCode, Integer orderCount);
 }

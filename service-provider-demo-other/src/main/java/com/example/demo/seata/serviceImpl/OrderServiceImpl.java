@@ -22,12 +22,12 @@ public class OrderServiceImpl implements OrderService {
     private OrderMapper orderMapper;
 
     @Override
-    public void createOrder(String userId, String commodityCode, Integer count) {
-        BigDecimal orderMoney = new BigDecimal(count).multiply(new BigDecimal(5));
+    public void createOrder(String userId, String commodityCode, Integer orderCount) {
+        BigDecimal orderMoney = new BigDecimal(orderCount).multiply(new BigDecimal(5));
         Order order = new Order();
         order.setUserId(userId);
         order.setCommodityCode(commodityCode);
-        order.setCount(count);
+        order.setCount(orderCount);
         order.setMoney(orderMoney);
         orderMapper.insert(order);
     }

@@ -96,7 +96,7 @@
             <artifactId>sentinel-core</artifactId>
         </dependency>
 
-<!--        引入Provider 入口包feign-->
+        <!--        引入Provider 入口包feign-->
         <dependency>
             <groupId>com.example</groupId>
             <artifactId>service-provider-demo-feign</artifactId>
@@ -123,16 +123,16 @@
             <version>1.1.6</version>
         </dependency>
 <!--        seata分布式事务-->
-<!--        <dependency>-->
-<!--            <groupId>io.seata</groupId>-->
-<!--            <artifactId>seata-spring-boot-starter</artifactId>-->
-<!--            <version>1.4.0</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>io.seata</groupId>-->
-<!--            <artifactId>seata-all</artifactId>-->
-<!--            <version>1.4.0</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>io.seata</groupId>
+            <artifactId>seata-spring-boot-starter</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.seata</groupId>
+            <artifactId>seata-all</artifactId>
+            <version>1.4.0</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

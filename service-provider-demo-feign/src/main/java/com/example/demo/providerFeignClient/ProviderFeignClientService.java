@@ -2,6 +2,7 @@ package com.example.demo.providerFeignClient;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @Description:
@@ -21,6 +22,10 @@ public interface ProviderFeignClientService {
 
 
     /**
+     * 多个参数 必须加上@RequestParam  否则会报错
+     * 注意参数名称必须 feign服务 被调用服务一致
+     * 注意参数类型必须  feign服务 被调用服务一致
+     *
      * 测试 分布式事务 seata
      * @param userId
      * @param commodityCode
@@ -28,5 +33,5 @@ public interface ProviderFeignClientService {
      * @return
      */
     @GetMapping(value = "/seataTest/createOrder")
-    String createOrder(String userId, String commodityCode, int orderCount);
+    String createOrder(@RequestParam("userId")String userId, @RequestParam("commodityCode")String commodityCode,@RequestParam("orderCount") Integer orderCount);
 }
