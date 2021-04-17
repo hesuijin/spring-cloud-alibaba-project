@@ -31,7 +31,7 @@ public class ProviderDemoFeignClient {
         //3：consumer服务 请求 providerFeignClient服务
         //4：providerFeignClient服务 请求 provider服务
         String resp;
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 4; i++) {
             resp =  providerFeignClientService.print();
             log.info("请求结果：{}",resp);
         }
