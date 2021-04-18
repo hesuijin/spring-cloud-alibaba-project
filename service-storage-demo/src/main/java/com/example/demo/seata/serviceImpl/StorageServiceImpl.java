@@ -45,3 +45,16 @@ public class StorageServiceImpl implements StorageService{
         log.info(transactionalFlag + " : 已经修改成功");
     }
 }
+
+/*？？？
+reference solution:
+    @Transactional
+    public void deduct(String commodityCode, int count) {
+        //select + for update
+        Storage storage = storageMapper.findByCommodityCode(commodityCode);
+        storage.setCount(storage.getCount() - count);
+        storageMapper.updateById(storage);
+    }
+    1.select for update,refer https://seata.io/zh-cn/docs/overview/faq.html#4
+    2.(optional)use @Transactional,keep X locks held until connection submission
+*/
