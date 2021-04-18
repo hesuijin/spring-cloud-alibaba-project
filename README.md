@@ -10,7 +10,7 @@
  | 技术名称 | 作用 | 优势 |
  | --- | --- | --- |
  | SpringBoot | 取代了SSH（SSM）模式 | 自动装配的快速整合Web服务 |
- | SpringCloudAlibaba | 分布式框架 | 在原生SpringCloud上进行一层封装 更加兼容其他第三方插件 |
+ | SpringCloudAlibaba | 分布式框架 | 在原生SpringCloud上进行一层封装 更加兼容其他第三方中间件 |
  | Feign | 服务间调度 | SpringCloud自带的功能 实现微服务之间快速调度 |
  | Ribbon | 负载均衡策略 | SpringCloud自带的功能 可以在网关调度或者微服务的调度的时候 实现负载均衡功能  |
  | Nacos | 服务的注册发现中心 | 去中心化的注册发现功能 帮助网关或者微服务快速调度 (可以快速兼容SpringCloudAlibaba) |
