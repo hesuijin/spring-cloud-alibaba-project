@@ -44,7 +44,7 @@ public class OrderServiceImpl implements OrderService {
 
         //先进 storage服务 执行完逻辑
         //后进 provider服务 使得产生RuntimeException异常
-        //storage服务 和 provider服务 都回滚
+//        storage服务 和 provider服务 都回滚
 //        if (true) {
 //            throw new RuntimeException("provider service  createOrder exception");
 //        }

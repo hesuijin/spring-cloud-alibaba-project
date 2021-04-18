@@ -24,6 +24,6 @@ public interface StorageFeignClientService {
      * @return
      */
     @RequestMapping("seataTest/deductStorage")
-     void seatadeductStorage( @RequestParam("commodityCode") String commodityCode , @RequestParam("orderCount") Integer orderCount) ;
+     void seatadeductStorage( @RequestParam("commodityCode") String commodityCode , @RequestParam("orderCount") Integer orderCount,@RequestParam("transactionalFlag") String transactionalFlag) ;
 
 }

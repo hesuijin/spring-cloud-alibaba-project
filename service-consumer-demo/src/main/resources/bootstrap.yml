@@ -55,3 +55,13 @@ seata:
 #      cluster: default
 #      username: naocs
 #      password: naocs
+
+feign:
+  httpclient:
+    connection-timeout: 10000
+    connection-timer-repeat: 10000
+
+ribbon:
+  ConnectTimeout: 10000
+  ReadTimeout: 10000
+

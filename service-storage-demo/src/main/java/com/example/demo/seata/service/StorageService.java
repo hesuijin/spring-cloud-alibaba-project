@@ -8,5 +8,5 @@ package com.example.demo.seata.service;
 public interface StorageService {
 
 
-     void deductStorage(String commodityCode, Integer orderCount);
+     void deductStorage(String commodityCode, Integer orderCount,String transactionalFlag);
 }

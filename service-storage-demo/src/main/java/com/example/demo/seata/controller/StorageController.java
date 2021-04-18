@@ -31,10 +31,10 @@ public class StorageController {
      * @return
      */
     @RequestMapping("/deductStorage")
-    public void seataDeductStorage( @RequestParam("commodityCode") String commodityCode , @RequestParam("orderCount") Integer orderCount) {
+    public void seataDeductStorage( @RequestParam("commodityCode") String commodityCode , @RequestParam("orderCount") Integer orderCount,@RequestParam("transactionalFlag") String transactionalFlag) {
         System.out.println("我是 service-storage-demo服务 的seata deductStorage接口");
         System.out.println("XID " + RootContext.getXID());
-        storageService.deductStorage(commodityCode, orderCount);
+        storageService.deductStorage(commodityCode, orderCount,transactionalFlag);
     }
 
 }

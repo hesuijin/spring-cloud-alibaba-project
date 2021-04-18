@@ -5,6 +5,7 @@ import com.example.demo.providerFeignClient.ProviderFeignClientService;
 import com.example.demo.seata.service.BusinessService;
 import com.example.demo.storageFeignClientService.StorageFeignClientService;
 import io.seata.core.context.RootContext;
+import io.seata.spring.annotation.GlobalLock;
 import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,7 @@ public class BusinessServiceImpl implements BusinessService {
      */
     @Override
     @GlobalTransactional(rollbackFor = RuntimeException.class)
+//    @GlobalLock
 //    @Transactional(rollbackFor = RuntimeException.class)
     public void purchase(String userId, String commodityCode, Integer orderCount) {
         //为了与日志区分 使用 System打印日志
@@ -45,13 +47,14 @@ public class BusinessServiceImpl implements BusinessService {
         System.out.println("order XID " + RootContext.getXID());
 
         //storageService服务  db_storage库  storage_tbl表
-        storageFeignClientService.seatadeductStorage(commodityCode, orderCount);
+        storageFeignClientService.seatadeductStorage(commodityCode, orderCount, "Transactional");
         //providerService服务   db_order库  order_tbl表
         providerFeignClientService.seataCreateOrder(userId, commodityCode, orderCount);
     }
 
     @Override
     @GlobalTransactional(rollbackFor = RuntimeException.class)
+//    @GlobalLock
     public void purchaseFirst(String userId, String commodityCode, Integer orderCount) {
         //为了与日志区分 使用 System打印日志
 
@@ -59,9 +62,9 @@ public class BusinessServiceImpl implements BusinessService {
         System.out.println("我先进行调用  order XID " + RootContext.getXID());
 
         //storageService服务  db_storage库  storage_tbl表
-        storageFeignClientService.seatadeductStorage(commodityCode, orderCount);
+        storageFeignClientService.seatadeductStorage(commodityCode, orderCount,"GlobalTransactional");
 
-        //休眠60秒，期间去调用其他接口
+        //休眠30秒，期间去调用其他接口
         try {
             Thread.sleep(1000*30);
         } catch (InterruptedException e) {
