@@ -1,0 +1,20 @@
+#server:
+#  port: 9996
+#spring:
+#  application:
+#    name: nacos-storage-feign
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 47.113.101.241:8848
+#      config:
+#        namespace: f3533721-4b21-4ef0-a373-e78b71f639c7
+#        server-addr: 47.113.101.241:8848
+#        group: DEFAULT_GROUP
+#        file-extension: yml
+#
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"

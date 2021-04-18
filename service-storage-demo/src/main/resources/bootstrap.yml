@@ -1,8 +1,8 @@
 server:
-  port: 9991
+  port: 9995
 spring:
   application:
-    name: nacos-consumer
+    name: nacos-storage
   cloud:
     nacos:
       discovery:
@@ -12,7 +12,6 @@ spring:
         server-addr: 47.113.101.241:8848
         group: DEFAULT_GROUP
         file-extension: yml
-        refresh-enabled: true
   datasource:
     username: root
     password: Hsj123456
@@ -26,9 +25,10 @@ management:
     web:
       exposure:
         include: "*"
+
 seata:
   enabled: true
-  application-id: nacos-consumer
+  application-id: nacos-storage
   tx-service-group: my_test_tx_group
   service:
     vgroup-mapping:
@@ -38,13 +38,13 @@ seata:
 
   config:
     type: file
-#      type: nacos
-#      nacos:
-#        namespace:
-#        serverAddr: 47.113.101.241:8848
-#        group: SEATA_GROUP
-#        username: nacos
-#        password: nacos
+#    type: nacos
+#    nacos:
+#      namespace:
+#      serverAddr: 47.113.101.241:8848
+#      group: SEATA_GROUP
+#      username: nacos
+#      password: nacos
 
   registry:
     type: file

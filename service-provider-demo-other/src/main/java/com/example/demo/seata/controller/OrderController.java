@@ -25,7 +25,7 @@ public class OrderController {
     @GetMapping(value = "createOrder")
     public void SeataCreateOrder(@RequestParam("userId") String userId, @RequestParam("commodityCode") String commodityCode, @RequestParam("orderCount") Integer orderCount) {
         System.out.println("我是 service-provider-demo-other 服务 的seata createOrder接口");
-        System.out.println("order XID " + RootContext.getXID());
+        System.out.println("XID " + RootContext.getXID());
         orderService.createOrder(userId, commodityCode, orderCount);
     }
 

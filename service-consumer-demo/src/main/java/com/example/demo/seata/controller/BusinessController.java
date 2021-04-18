@@ -32,4 +32,14 @@ public class BusinessController {
         return true;
     }
 
+    /**
+     * 购买下单，模拟全局事务提交  先进行的调用
+     *
+     * @return
+     */
+    @RequestMapping("/purchase/commitFirst")
+    public Boolean purchaseCommitFirst(HttpServletRequest request) {
+        businessService.purchaseFirst("1002", "2001", 1);
+        return true;
+    }
 }
