@@ -12,6 +12,13 @@ spring:
         server-addr: 47.113.101.241:8848
         group: DEFAULT_GROUP
         file-extension: yml
+  datasource:
+    username: root
+    password: Hsj123456
+    url: jdbc:mysql://47.115.38.181:3306/db_order?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+    driverClassName: com.mysql.jdbc.Driver
+mybatis:
+  mapper-locations: classpath:mapper/*/*.xml, classpath:mapper/*.xml
 
 management:
   endpoints:
@@ -19,3 +26,32 @@ management:
       exposure:
         include: "*"
 
+seata:
+  enabled: true
+  application-id: nacos-provider
+  tx-service-group: my_test_tx_group
+  service:
+    vgroup-mapping:
+      my_test_tx_group: default
+    grouplist:
+      default: 127.0.0.1:8091
+
+  config:
+    type: file
+  #    type: nacos
+  #    nacos:
+  #      namespace:
+  #      serverAddr: 47.113.101.241:8848
+  #      group: SEATA_GROUP
+  #      username: nacos
+  #      password: nacos
+
+  registry:
+    type: file
+#    type: nacos
+#    nacos:
+#      server-addr: 47.113.101.241:8848
+#      group: SEATA_GROUP
+#      cluster: default
+#      username: naocs
+#      password: naocs      server-addr: localhost

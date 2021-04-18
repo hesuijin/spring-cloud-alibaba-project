@@ -17,24 +17,4 @@ public class GatewayApplication {
         SpringApplication.run(GatewayApplication.class, args);
     }
 
-    /**
-     * 轮训策略
-     * @return
-     */
-    @Bean
-    @Scope(value="prototype")
-    public IRule loadRoundBalanceRule(){
-        return new RoundRobinRule();
-    }
-
-//    /**
-//     * 权重策略
-//     * @return
-//     */
-//    @Bean
-//    @Scope(value="prototype")
-//    public IRule loadNacosBalanceRule(){
-//        return new NacosRule();
-//    }
-
 }

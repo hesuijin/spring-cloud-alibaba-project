@@ -4,11 +4,9 @@ import com.example.demo.seata.entity.Order;
 import com.example.demo.seata.mapper.OrderMapper;
 import com.example.demo.seata.service.OrderService;
 import io.seata.core.context.RootContext;
-import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 
@@ -45,8 +43,8 @@ public class OrderServiceImpl implements OrderService {
         //先进 storage服务 执行完逻辑
         //后进 provider服务 使得产生RuntimeException异常
 //        storage服务 和 provider服务 都回滚
-        if (true) {
-            throw new RuntimeException("provider service  createOrder exception");
-        }
+//        if (true) {
+//            throw new RuntimeException("provider service  createOrder exception");
+//        }
     }
 }

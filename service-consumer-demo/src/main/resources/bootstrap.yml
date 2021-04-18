@@ -64,4 +64,3 @@ feign:
 ribbon:
   ConnectTimeout: 10000
   ReadTimeout: 10000
-
