@@ -39,7 +39,7 @@ public class NacosConsumerApi {
         String url = String.format("http://%s:%s/nacos/%s", serviceInstance.getHost(), serviceInstance.getPort(),
                 appName);
 
-        http://192.168.137.1:9991/nacos/nacos-consumer
+        //http://192.168.137.1:9991/nacos/nacos-consumer
         log.info("你好，我是请求的url request url:{}" , url);
 
         //注意这里面 restTemplate.getForObject 已经进行了一次请求
