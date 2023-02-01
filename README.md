@@ -10,14 +10,14 @@
  | 技术名称 | 作用 | 优势 |
  | --- | --- | --- |
  | SpringBoot | 取代了SSH（SSM）模式 | 自动装配的快速整合Web服务 |
- | SpringCloudAlibaba | 分布式框架 | 在原生SpringCloud上进行一层封装 更加兼容其他第三方插件 |
+ | SpringCloudAlibaba | 分布式框架 | 在原生SpringCloud上进行一层封装 更加兼容其他第三方中间件 |
  | Feign | 服务间调度 | SpringCloud自带的功能 实现微服务之间快速调度 |
  | Ribbon | 负载均衡策略 | SpringCloud自带的功能 可以在网关调度或者微服务的调度的时候 实现负载均衡功能  |
  | Nacos | 服务的注册发现中心 | 去中心化的注册发现功能 帮助网关或者微服务快速调度 (可以快速兼容SpringCloudAlibaba) |
  | Nacos | 服务的动态配置中心 | 实时动态配置不需要重启服务(可以快速兼容SpringCloudAlibaba) |
  | Sentinel | 限流熔断 | 可以在网关或者微服务的重要接口使用限流熔断  (可以快速兼容SpringCloudAlibaba)  |
  | SkyWalking | 链路追踪 | 可以针对全部服务进行链路追踪功能  (可以快速兼容SpringCloudAlibaba)  |
- | Seata | 分布式事务 | 针对微服务的痛点快速解决最终一致性问题 (可以快速兼容SpringCloudAlibaba)  |
+ | Seata | 分布式事务 | 针对微服务的痛点 快速解决分布式数据库数据的最终一致性问题 (可以快速兼容SpringCloudAlibaba)  |
  | Mysql | 持久化数据库 | 平民数据库（免费 使用人群多 单机可以承担4000QPS ）  |
  | MyBatis | ORM框架 | 半自动框架 如果配合MyBatis-Plus代码编写效率高  |
  | Druid| 数据库连接池 | 阿里开发 内置详细统计SQL的执行性能插件  |      
