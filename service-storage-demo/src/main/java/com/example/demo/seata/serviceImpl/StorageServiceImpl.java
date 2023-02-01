@@ -43,6 +43,17 @@ public class StorageServiceImpl implements StorageService{
         storage.setCount(storage.getCount() - orderCount);
         storageMapper.updateById(storage);
         log.info(transactionalFlag + " : 已经修改成功");
+
+        //解决脏读问题 把睡眠代码放到后面
+        //        if("GlobalTransactional".equals(transactionalFlag)){
+//            //休眠5秒，期间去调用其他接口
+//            try {
+//                Thread.sleep(1000*5);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        }
+
     }
 }
 
